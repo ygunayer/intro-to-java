@@ -1,7 +1,10 @@
 package com.emlakjet.intro;
 
+import com.emlakjet.intro.caching.Cache;
+import com.emlakjet.intro.caching.InMemoryCache;
+
 public class Greeter {
-    private Cache<String> cache = new Cache<String>();
+    private Cache<String, String> cache = new InMemoryCache<String, String>();
 
     public String greet(String who) {
         if (cache.contains(who)) {

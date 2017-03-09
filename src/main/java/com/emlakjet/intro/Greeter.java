@@ -1,12 +1,15 @@
 package com.emlakjet.intro;
 
 import com.emlakjet.intro.caching.Cache;
+import com.emlakjet.intro.injection.Inject;
+import com.emlakjet.intro.injection.Registry;
 
 public class Greeter {
+    @Inject
     private Cache<String, String> cache;
 
-    public Greeter(Cache<String, String> cache) {
-        this.cache = cache;
+    public Greeter() {
+        Registry.getInstance().inject(this);
     }
 
     public String greet(String who) {
